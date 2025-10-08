@@ -1,0 +1,10 @@
+<odoo>
+    <template id="report_invoice_recipient" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@name='origin']" position="after">
+            <div class="col" t-if="o.recipient_id">
+                <strong>Recipient</strong>
+                <div t-field="o.recipient_id"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_order_designated_insured_user,sale.order.designated.insured user,model_sale_order_designated_insured,base.group_user,1,1,1,1
+access_sale_order_mutual_funds_user,sale.order.mutual.funds user,model_sale_order_mutual_funds,base.group_user,1,1,1,1
+access_sale_order_add_ins_user,sale.order.add.ins user,model_sale_order_add_ins,base.group_user,1,1,1,1
+access_sale_order_life_group_user,sale.order.life.group user,model_sale_order_life_group,base.group_user,1,1,1,1
+access_sale_order_financial_plan_user,sale.order.financial.plan user,model_sale_order_financial_plan,base.group_user,1,1,1,1
+access_account_move_designated_insured_user,account.move.designated.insured user,model_account_move_designated_insured,base.group_user,1,1,1,1
+access_account_move_mutual_funds_user,account.move.mutual.funds user,model_account_move_mutual_funds,base.group_user,1,1,1,1
+access_account_move_add_ins_user,account.move.add.ins user,model_account_move_add_ins,base.group_user,1,1,1,1
+access_account_move_life_group_user,account.move.life.group user,model_account_move_life_group,base.group_user,1,1,1,1
+access_account_move_financial_plan_user,account.move.financial.plan user,model_account_move_financial_plan,base.group_user,1,1,1,1

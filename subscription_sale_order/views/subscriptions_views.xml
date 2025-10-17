@@ -1,0 +1,85 @@
+<odoo>
+    <record id="sale_subscriptions_inherit_primary_form_view" model="ir.ui.view">
+        <field name="name">sale.subscriptions.inherit.primary.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_primary_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_information']//field[@name='tag_ids']" position="after">
+                <field name="payment_term_id"/>
+            </xpath>
+
+            <xpath expr="//field[@name='payment_term_id']" position="replace">
+                <field name="start_date"/>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Subscription Data">
+                    <group>
+                        <group>
+                            <field name="prime_previous"/>
+                            <field name="prime_current"/>
+                            <field name="gap_previous"/>
+                            <field name="gap_current"/>
+                            <field name="life_comm_previous"/>
+                            <field name="life_comm_current"/>
+                            <field name="credits_previous"/>
+                            <field name="credits_current"/>
+                            <field name="mutual_funds_previous"/>
+                            <field name="mutual_funds_current"/>
+                        </group>
+                        <group>
+                            <field name="life_agent_previous"/>
+                            <field name="life_agent_current"/>
+                            <field name="amf_previous"/>
+                            <field name="amf_current"/>
+                            <field name="per_claim"/>
+                            <field name="per_period"/>
+                            <field name="deductible"/>
+                            <field name="deductible_per_year"/>
+                            <field name="notes"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Designated Insured">
+                    <group>
+                        <field name="designated_insured_ids">
+                            <list editable="bottom">
+                                <field name="name"/>
+                            </list>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Additional Insured">
+                    <group>
+                        <field name="mutual_funds_ids">
+                            <list editable="bottom">
+                                <field name="name"/>
+                            </list>
+                        </field>
+                        <field name="life_group_ids">
+                            <list editable="bottom">
+                                <field name="name"/>
+                            </list>
+                        </field>
+                        <field name="financial_plan_ids">
+                            <list editable="bottom">
+                                <field name="name"/>
+                            </list>
+                        </field>
+                        <field name="add_ins_ids">
+                            <list editable="bottom">
+                                <field name="name"/>
+                            </list>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

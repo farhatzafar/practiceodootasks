@@ -1,0 +1,12 @@
+<odoo>
+    <record id="action_report_product_label" model="ir.actions.report">
+        <field name="name">Custom Product Label</field>
+        <field name="model">mrp.production</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">manufacturing_product_labels.product_label_template</field>
+        <field name="report_file">manufacturing_product_labels.product_label_template</field>
+        <field name="paperformat_id" ref="manufacturing_product_labels.paperformat_production_multi_barcode_label"/>
+        <field name="binding_model_id" ref="mrp.model_mrp_production"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

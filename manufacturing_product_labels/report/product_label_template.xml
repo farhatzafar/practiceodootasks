@@ -1,0 +1,48 @@
+<odoo>
+    <template id="product_label_template">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="o">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <img t-if="o.company_id.logo" class="o_company_logo_big" t-att-src="image_data_uri(o.company_id.logo)" alt="Logo"/>
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <h4><strong>MODEL:</strong> <t t-esc="o.product_id.display_name"/></h4>
+
+                    <t t-if="o.product_id.name">
+                        <t t-set="product_name" t-value="o.product_id.name.split('-')[0]"/>
+                        <span t-esc="product_name" t-options="{'widget': 'barcode', 'width': 600, 'height': 100, 'img_style': 'width:350px;height:60px'}"/>
+                        <div t-esc="product_name"/>
+                    </t>
+
+                    <t t-if="o.product_id.barcode">
+                        <div style="font-size:26px; font-weight:bold; margin-bottom:5px;">
+                            UPC CODE: <span t-esc="o.product_id.barcode"/>
+                        </div>
+                        <div t-field="o.product_id.barcode"
+                             t-options="{'widget': 'barcode', 'width': 600, 'height': 100, 'img_style': 'width:350px;height:60px'}"/>
+                        <div><span t-esc="o.product_id.barcode"/></div>
+                    </t>
+
+                    <t t-if="o.lot_producing_id">
+                        <div style="font-size:26px; font-weight:bold; margin-bottom:5px;">
+                            SERIAL NUMBER: <span t-esc="o.lot_producing_id.name"/>
+                        </div>
+                        <div t-field="o.lot_producing_id.name"
+                             t-options="{'widget': 'barcode', 'width': 600, 'height': 100, 'img_style': 'width:350px;height:60px'}"/>
+                        <div><span t-esc="o.lot_producing_id.name"/></div>
+                    </t>
+                    <t t-else="">
+                        <div t-esc="o.product_id.barcode or 'No barcode available'"/>
+                    </t>
+                </div>
+
+                <div class="mt-2">
+                    <div t-field="o.company_id.partner_id"
+                        t-options='{"widget": "contact", "fields": ["address", "website"], "no_marker": True}' />
+                </div>
+
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_website_form_inherit_confirmation_template" model="ir.ui.view">
+        <field name="name">view.website.form.inherit.confirmation.template</field>
+        <field name="model">website</field>
+        <field name="inherit_id" ref="website.view_website_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="inside">
+                <field name="sale_confirmation_email_template_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

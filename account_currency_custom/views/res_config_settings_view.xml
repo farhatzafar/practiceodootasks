@@ -1,0 +1,18 @@
+<odoo>
+    <record id="res_config_settings_view_form_sale_currency" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.sale.currency</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='quotation_order_setting_container']" position="inside">
+                <setting id="sale_total_currency_setting"
+                         string="Currency for the Sale Total"
+                         help="The currency of this company will be used to display total sale amounts.">
+                    <field name="sale_total_company_id" options="{'no_create': True}"/>
+                    <field name="sale_total_company_currency" options="{'no_open': True}"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+

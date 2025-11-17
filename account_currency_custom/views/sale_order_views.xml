@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_sale_order_list_company_currency" model="ir.ui.view">
+        <field name="name">sale.order.list.company.currency</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <field name="total_currency" invisible="1"/>
+                <field name="amount_total_curr"
+                       string="Total (Company Currency)"
+                       widget="monetary"
+                       options="{'currency_field': 'total_currency'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sale_order_form_company_currency" model="ir.ui.view">
+        <field name="name">sale.order.form.company.currency</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='sale_total']/field[@name='tax_totals']" position="after">
+                <field name="amount_total_curr"
+                       widget="monetary"
+                       string="Total (Company Currency)"
+                       options="{'currency_field': 'total_currency'}"
+                       readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
+

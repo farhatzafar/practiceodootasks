@@ -1,0 +1,57 @@
+<odoo>
+    <record id="product_pricelist_item_form_view_inherit_limits" model="ir.ui.view">
+        <field name="name">product.pricelist.item.form.limits</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='applied_on']" position="after">
+                <group string="Quantity Limits">
+                    <field name="min_limit"
+                           attrs="{'invisible': [('applied_on', 'not in', ['1_product', '0_product_variant'])]}"/>
+                    <field name="max_limit"
+                           attrs="{'invisible': [('applied_on', 'not in', ['1_product', '0_product_variant'])]}"/>
+                    <field name="remove_customer_limit_after"
+                           attrs="{'invisible': [('applied_on', 'not in', ['1_product', '0_product_variant'])]}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_pricelist_tree_view_inherit_limits" model="ir.ui.view">
+        <field name="name">product.pricelist.tree.view.limits</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='item_ids']/tree[1]/field[@name='applied_on']" position="after">
+                <field name="min_limit"
+                       attrs="{'invisible':[('applied_on','not in',['1_product','0_product_variant'])]}"/>
+                <field name="max_limit"
+                       attrs="{'invisible':[('applied_on','not in',['1_product','0_product_variant'])]}"/>
+                <field name="remove_customer_limit_after"
+                       attrs="{'invisible':[('applied_on','not in',['1_product','0_product_variant'])]}"/>
+            </xpath>
+
+            <xpath expr="//field[@name='item_ids']/tree[2]/field[@name='applied_on']" position="after">
+                <field name="min_limit"
+                       attrs="{'invisible': [('applied_on','not in',['1_product','0_product_variant'])]}"/>
+                <field name="max_limit"
+                       attrs="{'invisible': [('applied_on','not in',['1_product','0_product_variant'])]}"/>
+                <field name="remove_customer_limit_after"
+                       attrs="{'invisible': [('applied_on','not in',['1_product','0_product_variant'])]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_pricelist_item_tree_view_from_product_inherit_limits" model="ir.ui.view">
+        <field name="name">product.pricelist.item.tree.from.product.limits</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_tree_view_from_product"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree//field[@name='applied_on']" position="after">
+                <field name="min_limit"/>
+                <field name="max_limit"/>
+                <field name="remove_customer_limit_after"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

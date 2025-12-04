@@ -1,0 +1,7 @@
+<odoo>
+    <template id="report_invoice_document_hide_due_date" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@name='due_date']" position="attributes">
+            <attribute name="class" add="d-none" separator=" "/>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,19 @@
+<odoo>
+    <record id="sale_view_order_form_material_lines" model="ir.ui.view">
+        <field name="name">sale.view.order.form.material.lines</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='other_information']" position="after">
+                <page string="Materials Used">
+                    <field name="material_line_ids">
+                        <list editable="bottom">
+                            <field name="product_id"/>
+                            <field name="quantity"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
